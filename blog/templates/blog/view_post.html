@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+   <div class="col-md-8 blog-main">
+     <h3 class="pb-3 mb-4 font-italic border-bottom">
+       {{ post.category }}
+     </h3>
+
+     <div class="blog-post">
+       <h2 class="blog-post-title">{{ post.title }}</h2>
+       <p class="blog-post-meta">{{ post.date_ajout |date:"d M Y" }}<a href="#"></a></p>
+
+       <p>{{ resume }}</p>
+       <hr>
+       <p class="card-text" style="width:100%;">{{ post.body | safe }}</p>
+     </div><!-- /.blog-post -->
+
+
+     <nav class="blog-pagination">
+       {% if post.get_previous_by_posted %}
+        <a class="btn btn-outline-secondary" href="{% url 'view_post' post.get_previous_by_posted.id %}">Retour</a>
+      {% endif %}
+
+      {% if post.get_next_by_posted %}
+       <a class="btn btn-outline-primary" href="{% url 'view_post' post.get_next_by_posted.id %}">Suivant</a>
+      {% endif %}
+     </nav>
+
+
+   <!-- <ul class="pager">
+        {% if post.get_next_by_posted %}
+            <li class="previous">
+                 <a href="{% url 'view_post' post.get_next_by_posted.id %}">&larr; Previous Post</a>
+            </li>
+        {% endif %}
+        {% if post.get_previous_by_posted %}
+            <li class="next">
+                 <a href="{% url 'view_post' post.get_previous_by_posted.id %}">Next Post &rarr;</a>
+            </li>
+        {% endif %}
+    </ul> -->
+
+   </div><!-- /.blog-main -->
+{% endblock %}

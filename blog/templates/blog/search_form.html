@@ -1,0 +1,30 @@
+<div class="col-lg-12 detail-separator">
+  <form class="col-md-6 col-md-offset-3 text-center" action="{% url 'search' %}" method="get" accept-charset="utf-8">
+    <div class="form-group">
+      <input id="searchForm" class="form-control" name="query" placeholder="Rechercher">
+    </div>
+  </form>
+</div>
+<div class="row mb-2">
+  {% for post in blog %}
+  <div class="col-md-6">
+    <div class="card flex-md-row mb-4 box-shadow h-md-250">
+      <div class="card-body d-flex flex-column align-items-start">
+        <strong class="d-inline-block mb-2 text-primary">World</strong>
+        <h3 class="mb-0">
+          <a class="text-dark" href="#">{{ post.title | truncatewords_html:9 }}</a>
+        </h3>
+        <div class="mb-1 text-muted">Nov 12</div>
+        <p class="card-text mb-auto">{{ post.body | truncatewords_html:15 }}</p>
+        <div class="footercard">
+          <a href="{% url 'view_post' post.id %}">LIRE PLUS</a>
+          {% if user.is_authenticated %}
+          <a href="{% url 'edit_post' post.id %}" >EDITER</a>
+          {% endif %}
+        </div>
+      </div>
+      <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+    </div>
+  </div>
+  {% endfor %}
+</div>

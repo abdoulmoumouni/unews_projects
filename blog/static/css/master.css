@@ -1,0 +1,47 @@
+.map_img{
+  width: 50%;
+  float: left;
+}
+
+.map_img path{
+  fill:#e6e6e6;
+  stroke:#fff;
+  stroke-width:2px;
+  transition: fill 0.3s;
+}
+
+.map_img path:hover{
+  fill:blue;
+
+}
+
+.map_list{
+  width: 50%;
+  float: right;
+}
+
+.map_list a{
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.card-header{
+  background-color: #343a40;
+  color: #fff;
+}
+.mb-4, .my-4 {
+  margin-top: 1.5rem!important;
+}
+.pag {
+    padding: 15px;
+    border: 1px solid;
+    border-color: #000;
+}
+.pb-5, .py-5 {
+    margin-top: 169px;
+  }
+  .jumbotron{
+    margin-top: 20px;
+    height: 317px;
+  }
+  
